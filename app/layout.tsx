@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Creative Technologist Portfolio",
+  title: "Paul M. Christian | Creative Technologist Portfolio",
   description:
     "A portfolio of embodied XR installations, mixed reality instruments, realtime visual systems, and custom sensing interfaces.",
   icons: {

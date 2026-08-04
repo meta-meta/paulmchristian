@@ -166,33 +166,44 @@ export default function Home() {
     <main>
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Creative technologist portfolio</p>
-          <h1>Embodied XR, musical interfaces, and realtime worlds.</h1>
+          <p className="eyebrow">Paul M. Christian</p>
+          <h1>Creative technologist for embodied XR and musical interfaces.</h1>
           <p className="lede">
             A body of work spanning VR installations, mixed reality instruments, homemade controllers,
             hand-tracked puppetry, and live sound-reactive projection systems.
           </p>
           <div className="hero-actions" aria-label="Portfolio navigation">
+            <a href="https://www.linkedin.com/in/paul-christian-20114090" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
             <a href="#featured">Featured work</a>
             <a href="#systems">Systems practice</a>
             <a href="#index">Project index</a>
           </div>
         </div>
-        <div className="hero-panel" aria-label="Portfolio focus areas">
-          <div>
-            <span>01</span>
-            <strong>Embodied control</strong>
-            <p>Bike rigs, custom sensors, data gloves, haptics, and hand tracking.</p>
-          </div>
-          <div>
-            <span>02</span>
-            <strong>Playable sound</strong>
-            <p>XR instruments, additive synthesis, theremin interfaces, and xenharmonic systems.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <strong>Live worlds</strong>
-            <p>Realtime VFX, projection, virtual puppetry, and performance environments.</p>
+        <div className="hero-identity">
+          <figure className="portrait">
+            <img
+              src="/paul-christian.png"
+              alt="Paul M. Christian inside a mirrored light installation"
+            />
+          </figure>
+          <div className="hero-panel" aria-label="Portfolio focus areas">
+            <div>
+              <span>01</span>
+              <strong>Embodied control</strong>
+              <p>Bike rigs, custom sensors, data gloves, haptics, and hand tracking.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <strong>Playable sound</strong>
+              <p>XR instruments, additive synthesis, theremin interfaces, and xenharmonic systems.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <strong>Live worlds</strong>
+              <p>Realtime VFX, projection, virtual puppetry, and performance environments.</p>
+            </div>
           </div>
         </div>
       </section>
