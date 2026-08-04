@@ -42,6 +42,7 @@ start-*.err.log
 # typescript
 next-env.d.ts
 /dist/
+/gh-pages-dist/
 /.wrangler/
 /outputs/
 /work/
