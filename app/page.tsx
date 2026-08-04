@@ -247,6 +247,25 @@ export default function Home() {
         ))}
       </section>
 
+      <section className="musicality-site" aria-label="Musicality.computer overview">
+        <div>
+          <p className="eyebrow">Musicality.computer</p>
+          <h2>A place for refactoring music.</h2>
+        </div>
+        <div className="musicality-copy">
+          <p>
+            Musicality.computer is the home for my experiments with exotic approaches to
+            working with music theory, alternate notation systems, instrument design, and
+            embodied ways of thinking through sound.
+          </p>
+          <p>
+            It acts as a host for prototypes, sketches, and playable research: tools that
+            treat theory as something you can touch, move through, retune, and reorganize.
+          </p>
+          <LinkPill href="https://musicality.computer">Visit Musicality.computer</LinkPill>
+        </div>
+      </section>
+
       <section className="systems" id="systems">
         <div>
           <p className="eyebrow">Systems practice</p>
