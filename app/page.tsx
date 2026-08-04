@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 const featuredProjects = [
   {
     title: "Human Powered Virtual Airship",
+    id: "embodied-control",
     year: "2022",
     type: "1:1 VR installation",
     summary:
@@ -28,6 +29,7 @@ const featuredProjects = [
   },
   {
     title: "Musicality VR",
+    id: "playable-sound",
     year: "2020-present",
     type: "Mixed reality music platform",
     summary:
@@ -74,6 +76,7 @@ const projects = [
   },
   {
     title: "Sound Reactive Projections for Xibaba",
+    id: "live-worlds",
     year: "Live visuals",
     summary:
       "A rear-projection tarp installation where audience silhouettes merged with sound-reactive visuals across a sidewalk.",
@@ -189,21 +192,21 @@ export default function Home() {
             />
           </figure>
           <div className="hero-panel" aria-label="Portfolio focus areas">
-            <div>
+            <a href="#embodied-control">
               <span>01</span>
               <strong>Embodied control</strong>
               <p>Bike rigs, custom sensors, data gloves, haptics, and hand tracking.</p>
-            </div>
-            <div>
+            </a>
+            <a href="#playable-sound">
               <span>02</span>
               <strong>Playable sound</strong>
               <p>XR instruments, additive synthesis, theremin interfaces, and xenharmonic systems.</p>
-            </div>
-            <div>
+            </a>
+            <a href="#live-worlds">
               <span>03</span>
               <strong>Live worlds</strong>
               <p>Realtime VFX, projection, virtual puppetry, and performance environments.</p>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -215,7 +218,7 @@ export default function Home() {
 
       <section className="featured-grid" aria-label="Featured portfolio projects">
         {featuredProjects.map((project) => (
-          <article className={`feature-card ${project.accent}`} key={project.title}>
+          <article className={`feature-card ${project.accent}`} id={project.id} key={project.title}>
             <div className="project-media">
               <VideoFrame src={project.embed} title={project.title} />
             </div>
@@ -263,7 +266,7 @@ export default function Home() {
 
       <section className="project-list">
         {projects.map((project) => (
-          <article className="project-row" key={project.title}>
+          <article className="project-row" id={project.id} key={project.title}>
             <div>
               <p className="project-year">{project.year}</p>
               <h3>{project.title}</h3>

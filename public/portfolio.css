@@ -169,7 +169,7 @@ h3 {
   object-position: 48% 56%;
 }
 
-.hero-panel > div {
+.hero-panel > a {
   min-height: 10rem;
   display: grid;
   align-content: space-between;
@@ -178,6 +178,15 @@ h3 {
   padding: 1rem;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.03));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.hero-panel > a:hover,
+.hero-panel > a:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(183, 240, 107, 0.72);
+  background: linear-gradient(135deg, rgba(183, 240, 107, 0.13), rgba(255, 255, 255, 0.04));
+  outline: none;
 }
 
 .hero-panel span,
@@ -193,6 +202,13 @@ h3 {
   display: block;
   margin-top: 1.4rem;
   font-size: 1.15rem;
+}
+
+.hero-panel strong::after {
+  content: " ↓";
+  color: var(--cyan);
+  font-family: var(--font-geist-mono), Consolas, monospace;
+  font-size: 0.86rem;
 }
 
 .hero-panel p {
@@ -223,6 +239,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
+  scroll-margin-top: 1.5rem;
 }
 
 .feature-card:nth-child(even) {
@@ -378,6 +395,7 @@ h3 {
   gap: clamp(1rem, 4vw, 4rem);
   border-top: 1px solid var(--line);
   padding: clamp(1.35rem, 3vw, 2.3rem) 0;
+  scroll-margin-top: 1.5rem;
 }
 
 .project-row:last-child {
