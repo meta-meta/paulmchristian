@@ -58,7 +58,7 @@ main {
 .eyebrow {
   margin: 0 0 1rem;
   color: var(--green);
-  font-family: var(--font-geist-mono), Consolas, monospace;
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
   font-size: 0.78rem;
   text-transform: uppercase;
 }
@@ -193,7 +193,7 @@ h3 {
 .project-year,
 .project-meta {
   color: var(--yellow);
-  font-family: var(--font-geist-mono), Consolas, monospace;
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
   font-size: 0.78rem;
   text-transform: uppercase;
 }
@@ -207,7 +207,7 @@ h3 {
 .hero-panel strong::after {
   content: " ↓";
   color: var(--cyan);
-  font-family: var(--font-geist-mono), Consolas, monospace;
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
   font-size: 0.86rem;
 }
 
@@ -295,7 +295,7 @@ h3 {
   right: 1rem;
   margin: 0;
   color: var(--muted);
-  font-family: var(--font-geist-mono), Consolas, monospace;
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
   font-size: 0.78rem;
   text-transform: uppercase;
 }
@@ -344,7 +344,7 @@ h3 {
   padding: 0.46rem 0.68rem;
   background: rgba(255, 255, 255, 0.05);
   color: #ebe5d6;
-  font-family: var(--font-geist-mono), Consolas, monospace;
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
   font-size: 0.76rem;
 }
 
