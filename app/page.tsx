@@ -115,6 +115,7 @@ const projects = [
         "Photo",
         "https://photos.google.com/share/AF1QipOwAUf3r7G_Fdn9NAGs-8XG87pO6_ZboY8dqEW3jonuguKxFEVHkZrq9Pa9V4ZECA/photo/AF1QipMT10PGjYScwdaBKT_LneYvk9TtP1DEm8wTb6ic?key=WWZETmdZMnA1YjNmUjA0YlYyX2wyUVR5UUxCYjJ3",
       ],
+      ["Photo album", "https://photos.app.goo.gl/XTKkxqmy9YfWi3kD8"],
     ],
   },
   {
