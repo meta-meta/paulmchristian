@@ -334,6 +334,10 @@ h3 {
   gap: 0.55rem;
 }
 
+.tag-list + .links {
+  margin-top: 0.45rem;
+}
+
 .tag-list span {
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 999px;
