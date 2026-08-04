@@ -60,7 +60,7 @@ const featuredProjects = [
       "The app preserves the expressive body feel of a real theremin while using mixed reality to make pitch geography visible and multipart performance more approachable.",
     tech: ["Meta Quest", "Mixed reality", "Spatial UI", "Performance looping", "XR instrument design"],
     links: [["Meta Quest store", "https://www.meta.com/experiences/theremin/29752287957695971/"]],
-    embed: "",
+    embed: "https://www.youtube.com/embed/8BfJQr9aNt0",
     accent: "light",
   },
 ];
