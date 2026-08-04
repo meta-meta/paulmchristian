@@ -170,7 +170,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-copy">
           <p className="eyebrow">Paul M. Christian</p>
-          <h1>Creative technologist for embodied XR and musical interfaces.</h1>
+          <h1>Creative technologist working in embodied XR and musical interfaces.</h1>
           <p className="lede">
             A body of work spanning VR installations, mixed reality instruments, homemade controllers,
             hand-tracked puppetry, and live sound-reactive projection systems.

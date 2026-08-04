@@ -72,9 +72,9 @@ p {
 
 h1 {
   margin: 0;
-  max-width: 11ch;
-  font-size: clamp(4.1rem, 9vw, 9.2rem);
-  line-height: 0.92;
+  max-width: 13.5ch;
+  font-size: clamp(3.7rem, 7.8vw, 7.6rem);
+  line-height: 0.95;
   letter-spacing: 0;
 }
 
@@ -447,7 +447,7 @@ footer a {
   }
 
   h1 {
-    max-width: 9ch;
+    max-width: 11.5ch;
   }
 
   .hero {
