@@ -47,7 +47,7 @@ const featuredProjects = [
       "Microtonality",
     ],
     links: [["Visit project", "https://musicality.computer/vr"]],
-    embed: "",
+    embed: "https://www.youtube.com/embed/ssTXCL8vB5Q?start=468",
     accent: "sound",
   },
   {
