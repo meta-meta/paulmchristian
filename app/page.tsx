@@ -248,11 +248,11 @@ export default function Home() {
       </section>
 
       <section className="musicality-site" aria-label="Musicality.computer overview">
-        <div className="project-media">
-          <div className="media-placeholder" aria-label="Musicality.computer visual placeholder">
-            <div className="pulse-rings" />
-            <p>Alternate notation / playable theory experiments</p>
-          </div>
+        <div className="project-media image-media">
+          <img
+            src="/musicality-computer.png"
+            alt="Musicality.computer Lumatone chords alternate notation experiment"
+          />
         </div>
         <div className="project-copy">
           <div className="project-meta">
