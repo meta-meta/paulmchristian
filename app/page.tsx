@@ -73,6 +73,8 @@ const projects = [
       "A fractal explorer that maps Mandelbrot escape-time values to harmonic overtones and sequences them with a Hilbert curve.",
     tech: ["Web audio", "WebMIDI", "Additive synthesis", "Fractals", "Hilbert curves"],
     links: [["Open toy", "https://meta-meta.github.io/aframe-musicality/mandelbrot"]],
+    thumbnail: "/mandelbrot-muse.png",
+    thumbnailAlt: "Mandelbrot Muse fractal audio interface with colorful pixel bands and circular synth controls",
   },
   {
     title: "Sound Reactive Projections for Xibaba",
@@ -82,6 +84,8 @@ const projects = [
       "A rear-projection tarp installation where audience silhouettes merged with sound-reactive visuals across a sidewalk.",
     tech: ["Projection", "Interactive visuals", "Live performance"],
     links: [["Watch video", "https://youtu.be/5gVvaTY_X2E?si=rqtD1hzaUffCVy0T"]],
+    thumbnail: "/xibaba-projections.png",
+    thumbnailAlt: "Audience silhouettes moving in front of blue sound-reactive Xibaba projections",
   },
   {
     title: "Mike Olson Six Projects Release Show",
@@ -93,6 +97,8 @@ const projects = [
       ["Project page", "https://www.mikeolsonmusic.com/six-projects"],
       ["Watch video", "https://www.youtube.com/watch?v=CIiGwP1KylI"],
     ],
+    thumbnail: "/mike-olson-six-projects.png",
+    thumbnailAlt: "Mike Olson performance setup with large green and orange projection mapped visuals",
   },
   {
     title: "Homebrew Data Glove",
@@ -101,6 +107,8 @@ const projects = [
       "A Razer Hydra-based VR glove with 6DOF tracking, homemade bend sensors, vibrotactile motors, and custom object interaction software.",
     tech: ["Arduino", "Processing", "Oculus Rift DK1", "Haptics", "Bend sensors"],
     links: [["Watch demo", "https://youtu.be/-b9UNLNkYFY?si=eI8d_EZx6vAqUvPo"]],
+    thumbnail: "/homebrew-data-glove.png",
+    thumbnailAlt: "VR data glove prototype beside monitors showing a virtual hand interaction demo and code",
   },
   {
     title: "Digital Dalang Virtual Light / Shadow Puppets",
@@ -117,13 +125,15 @@ const projects = [
       ],
       ["Photo album", "https://photos.app.goo.gl/XTKkxqmy9YfWi3kD8"],
     ],
+    thumbnail: "/digital-dalang.png",
+    thumbnailAlt: "Digital Dalang virtual shadow puppets projected on an ornate Wayang Kulit screen at night",
   },
   {
     title: "Raya and the Last Dragon Crystal Shards",
     year: "2019",
     summary:
-      "Hand-controlled smoke, magnetic crystal shards, and dragon magic effects for a digital Wayang Kulit production.",
-    tech: ["Unity", "Hand tracking", "Realtime VFX", "Performance systems"],
+      "Magic smoke and crystal shards floated around and followed the puppeteer's hand for a Wayang Kulit shadow puppet version of Disney's Raya and the Last Dragon Little Golden Book. When the puppeteer made a fist, the shards magnetically reassembled and released a burst of magic energy.",
+    tech: ["Unity", "Leap Motion", "Hand tracking", "VFX Graph", "Performance systems"],
     links: [],
   },
 ];
@@ -142,6 +152,28 @@ function LinkPill({ href, children }: { href: string; children: ReactNode }) {
       <span>{children}</span>
       <span aria-hidden="true">↗</span>
     </a>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg className="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.24c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.21.09 1.85 1.24 1.85 1.24 1.07 1.84 2.82 1.31 3.51 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.3c0 .32.22.69.82.57A12 12 0 0 0 12 .5Z"
+      />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg className="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05a3.75 3.75 0 0 1 3.37-1.85c3.61 0 4.27 2.38 4.27 5.46v6.29ZM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.04H3.53V8.98H7.1v11.47ZM22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0Z"
+      />
+    </svg>
   );
 }
 
@@ -170,14 +202,23 @@ export default function Home() {
     <main>
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Paul M. Christian</p>
+          <p className="eyebrow hero-name">Paul M. Christian</p>
           <h1>Creative technologist working in embodied XR and musical interfaces.</h1>
           <p className="lede">
             A body of work spanning VR installations, mixed reality instruments, homemade controllers,
             hand-tracked puppetry, and live sound-reactive projection systems.
           </p>
           <div className="hero-actions" aria-label="Portfolio navigation">
-            <a href="https://www.linkedin.com/in/paul-christian-20114090" target="_blank" rel="noreferrer">
+            <a href="https://github.com/meta-meta" target="_blank" rel="noreferrer">
+              <GitHubIcon />
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/paul-christian-20114090/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LinkedInIcon />
               LinkedIn
             </a>
             <a href="#featured">Featured work</a>
@@ -257,10 +298,10 @@ export default function Home() {
         </div>
         <div className="project-copy">
           <div className="project-meta">
-            <span>Musicality.computer</span>
             <span>Research hub</span>
           </div>
-          <h3>A place for refactoring music.</h3>
+          <h3>Musicality.computer</h3>
+          <p className="summary">A place for refactoring music.</p>
           <p>
             Musicality.computer is the home for my experiments with exotic approaches to
             working with music theory, alternate notation systems, instrument design, and
@@ -297,6 +338,13 @@ export default function Home() {
         {projects.map((project) => (
           <article className="project-row" id={project.id} key={project.title}>
             <div>
+              {project.thumbnail && (
+                <img
+                  className="project-thumbnail"
+                  src={project.thumbnail}
+                  alt={project.thumbnailAlt}
+                />
+              )}
               <p className="project-year">{project.year}</p>
               <h3>{project.title}</h3>
             </div>

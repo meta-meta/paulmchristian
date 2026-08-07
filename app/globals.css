@@ -1,12 +1,24 @@
-@import "tailwindcss";
-
 :root {
+  color-scheme: dark;
   --background: #101211;
   --foreground: #f4f1e8;
   --muted: #bab6aa;
   --line: rgba(244, 241, 232, 0.16);
   --panel: rgba(255, 255, 255, 0.07);
   --panel-strong: rgba(255, 255, 255, 0.11);
+  --chip-bg: rgba(255, 255, 255, 0.05);
+  --chip-border: rgba(255, 255, 255, 0.13);
+  --chip-text: #ebe5d6;
+  --button-bg: rgba(255, 255, 255, 0.06);
+  --button-hover-bg: rgba(72, 215, 255, 0.12);
+  --button-hover-border: rgba(72, 215, 255, 0.7);
+  --hero-card-hover-border: rgba(183, 240, 107, 0.72);
+  --hero-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.03));
+  --hero-card-hover-bg: linear-gradient(135deg, rgba(183, 240, 107, 0.13), rgba(255, 255, 255, 0.04));
+  --systems-bg: rgba(255, 255, 255, 0.04);
+  --body-glow-a: rgba(72, 215, 255, 0.2);
+  --body-glow-b: rgba(255, 115, 92, 0.11);
+  --surface-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
   --cyan: #48d7ff;
   --coral: #ff735c;
   --green: #b7f06b;
@@ -14,11 +26,34 @@
   --ink: #101211;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --background: #f7f5ee;
+    --foreground: #181a18;
+    --muted: #5f635f;
+    --line: rgba(24, 26, 24, 0.16);
+    --panel: rgba(255, 255, 255, 0.74);
+    --panel-strong: rgba(255, 255, 255, 0.9);
+    --chip-bg: rgba(24, 26, 24, 0.06);
+    --chip-border: rgba(24, 26, 24, 0.12);
+    --chip-text: #252a27;
+    --button-bg: rgba(255, 255, 255, 0.64);
+    --button-hover-bg: rgba(0, 129, 168, 0.12);
+    --button-hover-border: rgba(0, 129, 168, 0.56);
+    --hero-card-hover-border: rgba(0, 129, 168, 0.56);
+    --hero-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.48));
+    --hero-card-hover-bg: linear-gradient(135deg, rgba(0, 129, 168, 0.14), rgba(255, 255, 255, 0.68));
+    --systems-bg: rgba(255, 255, 255, 0.46);
+    --body-glow-a: rgba(0, 129, 168, 0.16);
+    --body-glow-b: rgba(162, 79, 113, 0.12);
+    --surface-shadow: 0 1px 0 rgba(255, 255, 255, 0.8), 0 18px 45px rgba(24, 26, 24, 0.07);
+    --cyan: #0081a8;
+    --coral: #ba4f61;
+    --green: #487c12;
+    --yellow: #9a6800;
+    --ink: #181a18;
+  }
 }
 
 * {
@@ -32,8 +67,8 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(72, 215, 255, 0.2), transparent 34rem),
-    linear-gradient(135deg, rgba(255, 115, 92, 0.11), transparent 36rem),
+    radial-gradient(circle at top left, var(--body-glow-a), transparent 34rem),
+    linear-gradient(135deg, var(--body-glow-b), transparent 36rem),
     var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
@@ -67,9 +102,16 @@ main {
 .eyebrow {
   margin: 0 0 1rem;
   color: var(--green);
-  font-family: var(--font-geist-mono), Consolas, monospace;
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
   font-size: 0.78rem;
   text-transform: uppercase;
+}
+
+.hero-name {
+  margin-bottom: 1.25rem;
+  color: var(--foreground);
+  font-size: clamp(1.8rem, 3.7vw, 3.7rem);
+  line-height: 1.05;
 }
 
 h1,
@@ -81,9 +123,9 @@ p {
 
 h1 {
   margin: 0;
-  max-width: 11ch;
-  font-size: clamp(4.1rem, 9vw, 9.2rem);
-  line-height: 0.92;
+  max-width: 16ch;
+  font-size: clamp(2.9rem, 5.9vw, 5.7rem);
+  line-height: 1;
   letter-spacing: 0;
 }
 
@@ -104,7 +146,7 @@ h3 {
 
 .lede {
   max-width: 760px;
-  margin: 1.6rem 0 0;
+  margin: 1.25rem 0 0;
   color: var(--muted);
   font-size: clamp(1.08rem, 2vw, 1.45rem);
   line-height: 1.45;
@@ -114,7 +156,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 2.2rem;
+  margin-top: 1.6rem;
 }
 
 .hero-actions a,
@@ -127,17 +169,23 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--button-bg);
   color: var(--foreground);
   font-size: 0.92rem;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
+.social-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+}
+
 .hero-actions a:hover,
 .link-pill:hover {
   transform: translateY(-2px);
-  border-color: rgba(72, 215, 255, 0.7);
-  background: rgba(72, 215, 255, 0.12);
+  border-color: var(--button-hover-border);
+  background: var(--button-hover-bg);
 }
 
 .hero-panel {
@@ -145,22 +193,64 @@ h3 {
   gap: 1rem;
 }
 
-.hero-panel > div {
+.hero-identity {
+  display: grid;
+  gap: 1rem;
+}
+
+.portrait {
+  position: relative;
+  min-height: clamp(18rem, 34vw, 32rem);
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(72, 215, 255, 0.34);
+  border-radius: 8px;
+  background: #050606;
+  box-shadow: var(--surface-shadow);
+}
+
+.portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(16, 18, 17, 0.58));
+  pointer-events: none;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: block;
+  object-fit: cover;
+  object-position: 48% 56%;
+}
+
+.hero-panel > a {
   min-height: 10rem;
   display: grid;
   align-content: space-between;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 1rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.03));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  background: var(--hero-card-bg);
+  box-shadow: var(--surface-shadow);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.hero-panel > a:hover,
+.hero-panel > a:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--hero-card-hover-border);
+  background: var(--hero-card-hover-bg);
+  outline: none;
 }
 
 .hero-panel span,
 .project-year,
 .project-meta {
   color: var(--yellow);
-  font-family: var(--font-geist-mono), Consolas, monospace;
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
   font-size: 0.78rem;
   text-transform: uppercase;
 }
@@ -169,6 +259,13 @@ h3 {
   display: block;
   margin-top: 1.4rem;
   font-size: 1.15rem;
+}
+
+.hero-panel strong::after {
+  content: " ↓";
+  color: var(--cyan);
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
+  font-size: 0.86rem;
 }
 
 .hero-panel p {
@@ -199,6 +296,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
+  scroll-margin-top: 1.5rem;
 }
 
 .feature-card:nth-child(even) {
@@ -221,6 +319,15 @@ h3 {
   min-height: 360px;
   display: block;
   border: 0;
+}
+
+.image-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 0%;
 }
 
 .media-placeholder {
@@ -254,7 +361,7 @@ h3 {
   right: 1rem;
   margin: 0;
   color: var(--muted);
-  font-family: var(--font-geist-mono), Consolas, monospace;
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
   font-size: 0.78rem;
   text-transform: uppercase;
 }
@@ -293,13 +400,17 @@ h3 {
   gap: 0.55rem;
 }
 
+.tag-list + .links {
+  margin-top: 0.45rem;
+}
+
 .tag-list span {
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  border: 1px solid var(--chip-border);
   border-radius: 999px;
   padding: 0.46rem 0.68rem;
-  background: rgba(255, 255, 255, 0.05);
-  color: #ebe5d6;
-  font-family: var(--font-geist-mono), Consolas, monospace;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  font-family: var(--font-jetbrains-mono), Consolas, monospace;
   font-size: 0.76rem;
 }
 
@@ -320,6 +431,17 @@ h3 {
   border-color: rgba(183, 240, 107, 0.34);
 }
 
+.musicality-site {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+  min-height: 520px;
+  margin: clamp(1rem, 3vw, 2rem) clamp(1.25rem, 4vw, 4rem) 0;
+  border: 1px solid rgba(255, 115, 92, 0.34);
+  border-radius: 8px;
+  background: var(--panel);
+  overflow: hidden;
+}
+
 .systems {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
@@ -328,7 +450,7 @@ h3 {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   margin-top: clamp(4rem, 8vw, 7rem);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--systems-bg);
 }
 
 .capability-list {
@@ -338,9 +460,9 @@ h3 {
 
 .capability-list p {
   margin: 0;
-  border-left: 3px solid var(--coral);
+  border-left: 3px solid var(--cyan);
   padding: 0.85rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--chip-bg);
 }
 
 .project-list {
@@ -354,10 +476,23 @@ h3 {
   gap: clamp(1rem, 4vw, 4rem);
   border-top: 1px solid var(--line);
   padding: clamp(1.35rem, 3vw, 2.3rem) 0;
+  scroll-margin-top: 1.5rem;
 }
 
 .project-row:last-child {
   border-bottom: 1px solid var(--line);
+}
+
+.project-thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 28%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background: #050606;
 }
 
 .project-row h3 {
@@ -391,6 +526,7 @@ footer a {
   .hero,
   .feature-card,
   .feature-card:nth-child(even),
+  .musicality-site,
   .systems,
   .project-row {
     grid-template-columns: 1fr;
@@ -401,7 +537,7 @@ footer a {
   }
 
   h1 {
-    max-width: 9ch;
+    max-width: 12.5ch;
   }
 
   .hero {

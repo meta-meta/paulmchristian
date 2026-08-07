@@ -2,6 +2,7 @@ import { mkdir, rm, cp, writeFile } from "node:fs/promises";
 
 const outputRoot = new URL("../gh-pages-dist/", import.meta.url);
 const publicRoot = new URL("../public/", import.meta.url);
+const clientRoot = new URL("../dist/client/", import.meta.url);
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 
 workerUrl.searchParams.set("static", `${process.pid}-${Date.now()}`);
@@ -34,12 +35,13 @@ html = html
   .replace(/<script(?:\s[^>]*)?>[\s\S]*?<\/script>/g, "")
   .replace(/\sdata-rsc-css-href="[^"]*"/g, "")
   .replace(/\sdata-precedence="[^"]*"/g, "")
-  .replace(/href="\/(portfolio\.css|favicon\.svg|paul-christian\.png)"/g, 'href="./$1"')
-  .replace(/src="\/(paul-christian\.png)"/g, 'src="./$1"');
+  .replace(/url\(C:\/Projects\/Portfolio\/\.vinext\/fonts\/([^)]+)\)/g, "url(./assets/_vinext_fonts/$1)")
+  .replace(/\b(href|src)="\/(?!\/)([^"#?]+)"/g, '$1="./$2"');
 
 await rm(outputRoot, { recursive: true, force: true });
 await mkdir(outputRoot, { recursive: true });
 await cp(publicRoot, outputRoot, { recursive: true });
+await cp(clientRoot, outputRoot, { recursive: true });
 await writeFile(new URL("index.html", outputRoot), html);
 await writeFile(new URL(".nojekyll", outputRoot), "");
 
