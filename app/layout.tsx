@@ -13,9 +13,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Paul M. Christian | Creative Technologist Portfolio",
+  title: "Paul M. Christian | Software Engineer & Creative Technologist",
   description:
-    "A portfolio of embodied XR installations, mixed reality instruments, realtime visual systems, and custom sensing interfaces.",
+    "Minneapolis software engineer working with React, TypeScript, Node.js, real-time systems, XR instruments, and custom hardware.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

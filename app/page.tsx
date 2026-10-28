@@ -7,14 +7,16 @@ const featuredProjects = [
     year: "2022",
     type: "1:1 VR installation",
     summary:
-      "A stationary recumbent bike transformed into a full-body VR airship controller for REM5's ESC 3.0.",
+      "A recumbent bicycle transformed into a sensor-driven VR airship controller for REM5 VR Labs / ESC 3.0.",
     details:
-      "Participants pedaled through a 3D scan of the booth, rose through a collapsed roof into a mountain river world, and steered two virtual propellers with a custom physical control inspired by real human-powered airships.",
+      "I designed and built the mechanical controls, electronics, custom optical encoder, and Unity integration. A Raspberry Pi Zero W running Node.js sent sensor data over OSC/UDP to the VR application. Tim Skrivseth created the NPC model and animation; Nature Manufacture supplied the mountain environment assets.",
     tech: [
       "Unity",
       "Meta Quest",
       "Pi Zero W",
-      "Max/MSP",
+      "Node.js",
+      "OSC / UDP",
+      "Clojure / OpenSCAD",
       "IR rotary encoder",
       "Ultrasonic sensing",
       "3D printing",
@@ -31,11 +33,11 @@ const featuredProjects = [
     title: "Musicality VR",
     id: "playable-sound",
     year: "2020-present",
-    type: "Mixed reality music platform",
+    type: "Experimental XR music environment",
     summary:
-      "A sandbox for learning, performing, and exploring alternative instrument layouts and microtonal tuning systems.",
+      "An experimental instrument and composition environment for spatial interaction, custom gestures, alternative tunings, and live synthesis.",
     details:
-      "The platform turns abstract musical objects into playful, spatial instruments: Tonneggs for additive synthesis, rhythm wheels synced to a DAW, and a continuous virtual theremin with formant control.",
+      "I develop and use Musicality for live performance, including solo sets and jams alongside other musicians. The work explores embodied ways to compose and play; native multiplayer remains a future direction.",
     tech: [
       "Unity",
       "REAPER",
@@ -55,10 +57,10 @@ const featuredProjects = [
     year: "2025-present",
     type: "Standalone Meta Quest app",
     summary:
-      "A mixed reality theremin with a linear pitch field, visible note positions, and ghost-hand performance cloning.",
+      "An independently developed commercial mixed-reality theremin with hand tracking, configurable pitch and amplitude controls, and FAUST audio synthesis.",
     details:
-      "The app preserves the expressive body feel of a real theremin while using mixed reality to make pitch geography visible and multipart performance more approachable.",
-    tech: ["Meta Quest", "Mixed reality", "Spatial UI", "Performance looping", "XR instrument design"],
+      "I conceived, programmed, published, and maintain the Meta Quest app. Ghost Hands adds motion-loop recording and playback as a feature of Theremin, alongside tuning, timbre, and spatial-audio controls.",
+    tech: ["Unity / C#", "Meta Quest", "FAUST", "Hand tracking", "Performance looping", "Spatial audio"],
     links: [["Meta Quest store", "https://www.meta.com/experiences/theremin/29752287957695971/"]],
     embed: "https://www.youtube.com/embed/8BfJQr9aNt0",
     accent: "light",
@@ -66,6 +68,14 @@ const featuredProjects = [
 ];
 
 const projects = [
+  {
+    title: "Jetpack Clankers",
+    year: "2025–2026 · Early access",
+    summary:
+      "A Wooorld-linked multiplayer Quest racing and social game. I build physics-driven locomotion, jointed robot-avatar behavior, game interactions, FAUST sound synthesis, motion recording/replay, and the in-game credit economy. My cofounder primarily creates environments, levels, and avatar cosmetics.",
+    tech: ["Unity / C#", "Meta Quest", "Normcore", "FAUST", "Recording / replay"],
+    links: [],
+  },
   {
     title: "Mandelbrot Muse",
     year: "Web sound toy",
@@ -104,7 +114,7 @@ const projects = [
     title: "Homebrew Data Glove",
     year: "2014",
     summary:
-      "A Razer Hydra-based VR glove with 6DOF tracking, homemade bend sensors, vibrotactile motors, and custom object interaction software.",
+      "A functioning wearable with homemade Velostat/copper-tape finger sensors and Razer Hydra-based 6DOF tracking. Arduino I/O and a Processing application mapped virtual collisions to 16 independently controlled haptic motors at corresponding locations on the glove.",
     tech: ["Arduino", "Processing", "Oculus Rift DK1", "Haptics", "Bend sensors"],
     links: [["Watch demo", "https://youtu.be/-b9UNLNkYFY?si=eI8d_EZx6vAqUvPo"]],
     thumbnail: "/homebrew-data-glove.png",
@@ -114,7 +124,7 @@ const projects = [
     title: "Digital Dalang Virtual Light / Shadow Puppets",
     year: "2018",
     summary:
-      "Hand-tracked virtual shadow puppets and VFX Graph visuals used as a luminous backlight for Wayang Kulit at Burning Man.",
+      "I built Unity software and physics-based digital puppets from artwork supplied by the art team, using Leap Motion wrist and finger movement to control them. Unity projections lit a hybrid of physical and digital Wayang Kulit puppetry at Burning Man; I also helped set up and run the installation.",
     tech: ["Unity", "Leap Motion", "VFX Graph", "Hand tracking", "Installation"],
     links: [
       ["Facebook clip", "https://www.facebook.com/share/v/1HDpn9KHUf/"],
@@ -130,15 +140,57 @@ const projects = [
   },
   {
     title: "Raya and the Last Dragon Crystal Shards",
-    year: "2019",
+    year: "2021",
     summary:
-      "Magic smoke and crystal shards floated around and followed the puppeteer's hand for a Wayang Kulit shadow puppet version of Disney's Raya and the Last Dragon Little Golden Book. When the puppeteer made a fist, the shards magnetically reassembled and released a burst of magic energy.",
+      "I developed performer-controlled Unity VFX Graph smoke and crystalline shards for a shadow puppet production tied to Raya and the Last Dragon. Leap Motion gestures let another performer separate and orbit the shards, then bring them back together and make them glow by closing a fist.",
     tech: ["Unity", "Leap Motion", "Hand tracking", "VFX Graph", "Performance systems"],
     links: [],
   },
 ];
 
+const professionalWork = [
+  {
+    title: "Wooorld",
+    period: "February 2022–present",
+    role: "CTO since May 2024 · Previously VR Software Engineer",
+    summary: "Hands-on technical cofounder maintaining and extending an existing multiplayer VR exploration platform and related game projects.",
+    highlights: [
+      "Own the Node.js/Express/MongoDB backend, APIs, admin tooling, and embedded React UI. Extend roles, permissions, subscriptions, credits, and usage accounting.",
+      "Before becoming CTO, built the React/Redux interface and its bidirectional Unity messaging, the admin tools, an AI-generated VR tour pipeline, geospatial curation, and shared drawing.",
+      "Continue work on network ownership and state synchronization, socket authentication/recovery, rendering performance, and platform integration. Extended an existing AI assistant with room-wide streamed spoken responses.",
+    ],
+    tech: ["React / Redux", "TypeScript", "Node.js / Express", "MongoDB", "Unity / C#", "Normcore"],
+  },
+  {
+    title: "World Singles Networks",
+    period: "October 2015–January 2022",
+    role: "Frontend Lead · Hands-on technical contributor",
+    summary: "Maintained and extended one configurable React/Redux application supporting approximately 40 branded dating sites, with distinct branded deployments through Bamboo CI and AWS.",
+    highlights: [
+      "Architected client-side Socket.IO messaging, GraphQL integration, Redux message state, read/seen status, UI, and tests.",
+      "Built internationalization and right-to-left interface support, plus a React Native WebView wrapper with native/web communication, push notifications, and deep links.",
+      "Improved initial loading with custom server rendering/prerendering and selective hydration. Collaborated on technical decisions, code review, and mentoring rather than line management.",
+    ],
+    tech: ["React / Redux", "GraphQL", "Socket.IO", "React Native WebView", "Jest", "Webpack", "AWS"],
+  },
+  {
+    title: "Earlier software work",
+    period: "2012–2017",
+    role: "Full-stack, frontend, and Unity engineering",
+    summary: "Enterprise applications, product MVPs, and cross-platform VR clients.",
+    highlights: [
+      "Wingspan Technology: contributed to a team-led React modernization, Scala REST services in a Java backend environment, streaming PDF/XML exports, and the open-source wingspan-forms library.",
+      "Scayne: sole frontend developer and architecture owner for a React coaching-platform MVP, implementing supplied designs. Panasonic: contributed React patterns and screens during telehealth modernization. Capella: maintained existing JavaScript/jQuery course interactions.",
+      "Realvision: sole Unity developer for a real-estate touring client, integrating an existing spherical-panorama API and adapting navigation, input, performance, and builds across four VR platforms.",
+    ],
+    tech: ["React", "Java / Scala", "REST APIs", "Streaming exports", "Unity / C#"],
+  },
+];
+
 const capabilities = [
+  "React / TypeScript applications and frontend architecture",
+  "Node.js APIs, admin tools, roles, and permissions",
+  "Explicit message contracts and real-time state across runtimes",
   "XR prototyping from concept to embodied install",
   "Sensor, controller, and input-device invention",
   "Spatial audio, synthesis, and instrument design",
@@ -203,10 +255,11 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-copy">
           <p className="eyebrow hero-name">Paul M. Christian</p>
-          <h1>Creative technologist working in embodied XR and musical interfaces.</h1>
+          <h1>Software engineer building web apps, XR, and musical interfaces.</h1>
           <p className="lede">
-            A body of work spanning VR installations, mixed reality instruments, homemade controllers,
-            hand-tracked puppetry, and live sound-reactive projection systems.
+            Approximately 20 years of hands-on engineering across React, TypeScript, Node.js,
+            and real-time interactive systems. From production web applications to mixed-reality
+            instruments and custom hardware, I build the interfaces that connect them.
           </p>
           <div className="hero-actions" aria-label="Portfolio navigation">
             <a href="https://github.com/meta-meta" target="_blank" rel="noreferrer">
@@ -221,6 +274,9 @@ export default function Home() {
               <LinkedInIcon />
               LinkedIn
             </a>
+            <a href="mailto:paulmchristian@gmail.com">Get in touch</a>
+            <a href="/paul-christian-resume.pdf" target="_blank" rel="noreferrer">Résumé (PDF)</a>
+            <a href="#experience">Software experience</a>
             <a href="#featured">Featured work</a>
             <a href="#systems">Systems practice</a>
             <a href="#index">Project index</a>
@@ -253,9 +309,36 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section-intro compact" id="experience">
+        <p className="eyebrow">Software experience</p>
+        <h2>Production applications, from interface to backend.</h2>
+        <p className="lede">Based in Minneapolis. My work spans full-stack product development,
+          frontend architecture, integration, debugging, and ongoing maintenance.</p>
+      </section>
+      <section className="project-list experience-list" aria-label="Professional software experience">
+        {professionalWork.map((work) => (
+          <article className="project-row" key={work.title}>
+            <div>
+              <p className="project-year">{work.period}</p>
+              <h3>{work.title}</h3>
+              <p className="experience-role">{work.role}</p>
+            </div>
+            <div>
+              <p>{work.summary}</p>
+              <ul className="experience-highlights">
+                {work.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+              </ul>
+              <div className="tag-list small" aria-label={`${work.title} technologies`}>
+                {work.tech.map((tag) => <span key={tag}>{tag}</span>)}
+              </div>
+            </div>
+          </article>
+        ))}
+      </section>
+
       <section className="section-intro" id="featured">
         <p className="eyebrow">Selected projects</p>
-        <h2>Prototype as instrument, installation, and performance.</h2>
+        <h2>Instruments, installations, and interactive systems.</h2>
       </section>
 
       <section className="featured-grid" aria-label="Featured portfolio projects">
@@ -320,7 +403,7 @@ export default function Home() {
       <section className="systems" id="systems">
         <div>
           <p className="eyebrow">Systems practice</p>
-          <h2>Comfortable at the weird boundary between body, code, and room.</h2>
+          <h2>Connecting interfaces, runtimes, and the physical world.</h2>
         </div>
         <div className="capability-list">
           {capabilities.map((item) => (
@@ -371,7 +454,7 @@ export default function Home() {
 
       <footer>
         <a href="#top">Back to top</a>
-        <p>Creative technologist portfolio focused on XR, sound, sensing, and realtime performance.</p>
+        <p>Minneapolis, MN · Software engineering, creative tools, XR, and real-time systems.</p>
       </footer>
     </main>
   );
